@@ -103,8 +103,13 @@ public class AppActivityServiceImpl implements AppActivityService {
     @Override
     public ActivityDTO timeSpent(AppActivityDTO appActivityDTO) throws EntityNotFoundException {
         ValidationUtil.validateDto(appActivityDTO);
-        ValidationUtil.checkNotNullOrBlank(appActivityDTO.getApplicationName(), "Application Name");
-        ValidationUtil.checkNotNull(appActivityDTO.getUserId(), "User ID");
+        if(appActivityDTO.getApplicationName()== null){
+            throw new EntityNotFoundException("App does not Exist");
+        }
+
+        if(appActivityDTO.getUserId()==null){
+            throw new EntityNotFoundException("User Not found");
+        }
 
         List<AppActivity> appActivities = appActivityRepo.getAppActivityByAppNameAndUser(
                 appActivityDTO.getApplicationName(),

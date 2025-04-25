@@ -52,19 +52,6 @@ public class OAuthController {
         }
     }
 
-//    //testing scheduler
-//    @PostMapping("/refreshToken")
-//    public ResponseEntity<ResponseHandler> getRefreshToken(){
-//        try{
-//            oAuthService.refreshToken();
-//            ResponseHandler response= new ResponseHandler(messageUtil.getMessage("refresh.get.success"),HttpStatus.OK.value(), true, "Authorization", null);
-//            return ResponseEntity.ok(response);
-//        }catch (Exception e){
-//            ResponseHandler response= new ResponseHandler(e.getMessage(),400, false,"authorization",null);
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-//        }
-//    }
-//
 
 
 }

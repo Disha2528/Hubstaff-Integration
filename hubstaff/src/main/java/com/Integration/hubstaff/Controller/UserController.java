@@ -43,14 +43,5 @@ public class UserController {
             return ResponseEntity.ok(response);
         }
     }
-//
-//    //testing scheduler
-//    @GetMapping("/sync")
-//    public ResponseEntity<String> syncUsers() {
-//        userService.getUsers();
-//        return ResponseEntity.ok("User sync triggered successfully");
-//    }
-//
-
 
 }
