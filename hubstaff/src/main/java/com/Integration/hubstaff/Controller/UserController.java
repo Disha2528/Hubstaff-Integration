@@ -26,9 +26,9 @@ public class UserController {
 
     @Autowired
     private MessageUtil messageUtil;
-    //works
+
     @GetMapping("/get/{orgId}")
-    public ResponseEntity<ResponseHandler> getUsers(@PathVariable Integer orgId){
+    public ResponseEntity<ResponseHandler> getUsers(@PathVariable  Integer orgId){
         try{
             List<UserDTO> userDTOList= userService.getUsersByOrganization(orgId).getUserList();
             ResponseHandler response = new ResponseHandler(messageUtil.getMessage("user.get.success"), HttpStatus.OK.value(), true, "User", userDTOList);

@@ -26,7 +26,7 @@ public class AppActivityController {
     @Autowired
     private MessageUtil messageUtil;
 
-    //works
+
     @PostMapping("/timeSpent")
     public ResponseEntity<ResponseHandler> getTimeSpent( @RequestBody @Validated(Onfetch.class) AppActivityDTO appActivityDTO){
         try{
@@ -40,7 +40,7 @@ public class AppActivityController {
         }
     }
 
-    //works
+
     @GetMapping("/getUserApps/{userId}")
     public ResponseEntity<ResponseHandler> getuserApps(@PathVariable @Valid Integer userId){
         try{
