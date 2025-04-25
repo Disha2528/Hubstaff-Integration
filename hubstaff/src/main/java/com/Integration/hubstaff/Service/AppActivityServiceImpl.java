@@ -1,5 +1,6 @@
 package com.Integration.hubstaff.Service;
 
+import com.Integration.hubstaff.Config.HubstaffConfig;
 import com.Integration.hubstaff.DTO.*;
 import com.Integration.hubstaff.Entity.App;
 import com.Integration.hubstaff.Entity.AppActivity;
@@ -47,14 +48,9 @@ public class AppActivityServiceImpl implements AppActivityService {
     @Autowired
     private UserService userService;
 
-    @Value("${base.url}")
-    private String baseUrl;
+    @Autowired
+    private HubstaffConfig hubstaffConfig;
 
-    @Value("${org.url}")
-    private String orgUrl;
-
-    @Value("${app.url}")
-    private String appUrl;
 
     @Override
     public void getNewAppActivity() {
@@ -76,7 +72,7 @@ public class AppActivityServiceImpl implements AppActivityService {
                 Integer orgId = organizationDTO.getOrganizationId();
 
                 ResponseEntity<AppActivityResponse> response = restTemplate.exchange(
-                        baseUrl + orgUrl + "/" + orgId + "/application_activities/daily" +
+                        hubstaffConfig.getHubstaffBaseUrl() + hubstaffConfig.getOrgUrl() + "/" + orgId + "/application_activities/daily" +
                                 "?date[start]=" + startDate + "&date[stop]=" + endDate,
                         HttpMethod.GET,
                         requestEntity,

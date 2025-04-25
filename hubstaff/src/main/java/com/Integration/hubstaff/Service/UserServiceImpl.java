@@ -1,5 +1,6 @@
 package com.Integration.hubstaff.Service;
 
+import com.Integration.hubstaff.Config.HubstaffConfig;
 import com.Integration.hubstaff.DTO.OrganizationDTO;
 import com.Integration.hubstaff.DTO.UserDTO;
 import com.Integration.hubstaff.DTO.UserResponse;
@@ -30,14 +31,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private ModelMapper modelMapper;
 
-    @Value("${base.url}")
-    String baseUrl;
-
-    @Value("${org.url}")
-    String orgUrl;
-
-    @Value("${users.url}")
-    String userUrl;
+    @Autowired
+    private HubstaffConfig hubstaffConfig;
 
     @Autowired
     private OAuthService oAuthService;
@@ -69,7 +64,7 @@ public class UserServiceImpl implements UserService {
             ValidationUtil.checkNotNull(orgId, "Organization ID");
 
             ResponseEntity<UserResponse> response = restTemplate.exchange(
-                    baseUrl + orgUrl + "/" + orgId + "/" + userUrl,
+                    hubstaffConfig.getHubstaffBaseUrl() + hubstaffConfig.getOrgUrl() + "/" + orgId + "/" + hubstaffConfig.getUserUrl(),
                     HttpMethod.GET,
                     requestEntity,
                     UserResponse.class

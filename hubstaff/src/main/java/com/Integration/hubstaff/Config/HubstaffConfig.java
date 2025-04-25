@@ -26,4 +26,10 @@ public class HubstaffConfig {
     @Value("${authorization.token.url}")
     private String tokenUrl;
 
+    @Value("${org.url}")
+    private String orgUrl;
+
+    @Value("${users.url}")
+    private String userUrl;
+
 }

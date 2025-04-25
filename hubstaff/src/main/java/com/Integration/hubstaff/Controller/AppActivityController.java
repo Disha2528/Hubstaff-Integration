@@ -6,7 +6,7 @@ import com.Integration.hubstaff.DTO.AppDTO;
 import com.Integration.hubstaff.Service.AppActivityService;
 import com.Integration.hubstaff.Util.MessageUtil;
 import com.Integration.hubstaff.Util.ResponseHandler;
-import com.Integration.hubstaff.groups.Onfetch;
+import com.Integration.hubstaff.Groups.Onfetch;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,5 +1,6 @@
 package com.Integration.hubstaff.Service;
 
+import com.Integration.hubstaff.Config.HubstaffConfig;
 import com.Integration.hubstaff.DTO.OrgResponse;
 import com.Integration.hubstaff.DTO.OrganizationDTO;
 import com.Integration.hubstaff.Entity.Organization;
@@ -33,11 +34,8 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Autowired
     private ModelMapper modelMapper;
 
-    @Value("${base.url}")
-    String baseUrl;
-
-    @Value("${org.url}")
-    String orgUrl;
+    @Autowired
+    private HubstaffConfig hubstaffConfig;
 
     @Override
     public void getNewOrgs() {
@@ -50,7 +48,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         HttpEntity<HttpHeaders> requestEntity = new HttpEntity<>(headers);
 
         ResponseEntity<OrgResponse> response = restTemplate.exchange(
-                baseUrl + orgUrl,
+                hubstaffConfig.getHubstaffBaseUrl() + hubstaffConfig.getOrgUrl(),
                 HttpMethod.GET,
                 requestEntity,
                 OrgResponse.class

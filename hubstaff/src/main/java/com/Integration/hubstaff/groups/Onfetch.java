@@ -1,4 +1,4 @@
-package com.Integration.hubstaff.groups;
+package com.Integration.hubstaff.Groups;
 
 public interface Onfetch {
 }

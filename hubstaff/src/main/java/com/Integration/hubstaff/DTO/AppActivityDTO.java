@@ -1,6 +1,6 @@
 package com.Integration.hubstaff.DTO;
 
-import com.Integration.hubstaff.groups.Onfetch;
+import com.Integration.hubstaff.Groups.Onfetch;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
